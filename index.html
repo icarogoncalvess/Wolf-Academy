@@ -159,27 +159,7 @@
 
     <!-- Main Content -->
     <div class="md:ml-64 p-4 md:p-8">
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  document.getElementById('loginScreen').style.display = 'none';
-  document.getElementById('dashboardContent').classList.remove('hidden');
-}); 
-        // Para salvar o progresso
-localStorage.setItem("progressoMentalidade", 65);
-
-// Para ler o progresso
-const progresso = localStorage.getItem("progressoMentalidade");
-console.log(`Progresso: ${progresso}%`);
-
-        <div id="commentsSection">
-  <textarea id="commentText" placeholder="Deixe seu comentário..."></textarea>
-  <button onclick="saveComment()">Enviar</button>
-  <div id="commentList"></div>
-</div>
-        <div id="lesson">
-  <h3>Aula 1: Mentalidade Positiva</h3>
-  <button onclick="markAsCompleted()">Marcar como Concluída</button>
-</div>
+       
         #dashboardContent {
   opacity: 0;
   transition: opacity 0.5s ease;
