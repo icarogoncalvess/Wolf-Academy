@@ -14,7 +14,7 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #000;
+      background-color: #111;
       color: #fff;
       line-height: 1.6;
     }
@@ -56,21 +56,23 @@
     }
 
     .hero {
-      background: linear-gradient(to bottom, #000, #111);
+      background: url('gatsby-background.jpg') no-repeat center center/cover;
       text-align: center;
       padding: 100px 20px;
+      color: #FFD700;
     }
 
     .hero h2 {
-      font-size: 40px;
-      color: #FFD700;
+      font-size: 50px;
       margin-bottom: 20px;
       font-weight: 900;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
     }
 
     .hero p {
       font-size: 20px;
       margin-bottom: 30px;
+      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
     }
 
     .btn {
@@ -90,39 +92,51 @@
       background-color: #e6c200;
     }
 
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
+    .login-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 30px;
+      background-color: #333;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
     }
 
-    section h3 {
-      font-size: 30px;
+    .login-container h2 {
       color: #FFD700;
       margin-bottom: 20px;
     }
 
-    section p, section ul {
-      font-size: 18px;
-      margin-bottom: 20px;
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #444;
+      border-radius: 8px;
+      font-size: 16px;
+      background-color: #222;
+      color: #fff;
     }
 
-    ul li {
-      margin-bottom: 10px;
+    .login-container button {
+      width: 100%;
+      background-color: #FFD700;
+      color: #000;
+      padding: 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    .dual-column {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 40px;
+    .login-container button:hover {
+      background-color: #e6c200;
     }
 
-    .column {
-      flex: 1;
-      min-width: 300px;
-      background-color: #111;
-      padding: 20px;
-      border-radius: 12px;
+    .portal-content {
+      display: none;
     }
 
     footer {
@@ -164,60 +178,45 @@
     </nav>
   </header>
 
-  <section class="hero">
-    <h2>Construa um físico de respeito.<br>Conquiste sua liberdade financeira.</h2>
-    <p>A mentoria definitiva para jovens que querem ser fortes, ricos e imbatíveis.</p>
-    <a href="#inscricao"><button class="btn">Começar agora</button></a>
-  </section>
+  <!-- Tela de login -->
+  <div class="login-container" id="login">
+    <h2>Área do Aluno</h2>
+    <input type="text" id="username" placeholder="Nome de usuário" />
+    <input type="password" id="password" placeholder="Senha" />
+    <button onclick="login()">Entrar</button>
+  </div>
 
-  <section id="sobre">
-    <h3>Sobre a Wolf Academy</h3>
-    <p>Somos uma mentoria prática e agressiva. Aqui você vai desenvolver o físico dos seus sonhos enquanto aprende a gerar renda pela internet e dominar sua mente. Essa é a vida do lobo: disciplina, estética e lucro.</p>
-  </section>
+  <!-- Portal de Aulas -->
+  <div class="portal-content" id="portal">
+    <section class="hero">
+      <h2>Bem-vindo ao Portal de Aulas da Wolf Academy</h2>
+      <p>Transforme seu físico, sua mente e sua vida financeira com a nossa mentoria.</p>
+    </section>
 
-  <section id="conteudo">
-    <h3>O que você vai aprender</h3>
-    <div class="dual-column">
-      <div class="column">
-        <h4>Desenvolvimento Físico</h4>
-        <ul>
-          <li>Treino para hipertrofia</li>
-          <li>Estratégias alimentares</li>
-          <li>Disciplina e rotina</li>
-          <li>Estilo de vida de atleta</li>
-        </ul>
-      </div>
-      <div class="column">
-        <h4>Desenvolvimento Financeiro</h4>
-        <ul>
-          <li>Fontes de renda online</li>
-          <li>Produtividade e foco</li>
-          <li>Criação de autoridade e marca pessoal</li>
-          <li>Mindset e execução</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    <section id="sobre">
+      <h3>Sobre a Wolf Academy</h3>
+      <p>Somos uma mentoria prática e agressiva. Aqui você vai desenvolver o físico dos seus sonhos enquanto aprende a gerar renda pela internet e dominar sua mente. Essa é a vida do lobo: disciplina, estética e lucro.</p>
+    </section>
 
-  <section id="publico">
-    <h3>Para quem é essa mentoria?</h3>
-    <ul>
-      <li>✅ Jovens que querem se destacar e viver fora da média</li>
-      <li>✅ Quem está cansado de ser fraco, inseguro ou quebrado</li>
-      <li>✅ Homens entre 15 e 25 anos que buscam evolução total</li>
-      <li>✅ Quem quer construir estética, disciplina e liberdade financeira</li>
-    </ul>
-  </section>
+    <footer>
+      <p>© 2025 Wolf Academy. Todos os direitos reservados.</p>
+    </footer>
+  </div>
 
-  <section id="inscricao">
-    <h3>Pronto para virar um lobo?</h3>
-    <p>Você vai sair dessa mentoria com um corpo que impõe respeito, uma mente forjada na disciplina e uma nova fonte de renda ativa.</p>
-    <button class="btn">Quero entrar na mentoria</button>
-  </section>
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
 
-  <footer>
-    <p>© 2025 Wolf Academy. Todos os direitos reservados.</p>
-  </footer>
+      // Simulação de um login simples com usuário e senha fixos
+      if (username === 'aluno' && password === '1234') {
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('portal').style.display = 'block';
+      } else {
+        alert('Usuário ou senha incorretos.');
+      }
+    }
+  </script>
 
 </body>
 </html>
