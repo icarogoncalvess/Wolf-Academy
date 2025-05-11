@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wolf Academy - Mentoria de Alta Performance</title>
+  <title>Portal de Aulas - Wolf Academy</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -17,79 +17,6 @@
       background-color: #111;
       color: #fff;
       line-height: 1.6;
-    }
-
-    header {
-      background-color: #000;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-bottom: 1px solid #222;
-    }
-
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-container img {
-      height: 40px;
-    }
-
-    .logo-container span {
-      color: #FFD700;
-      font-size: 24px;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: #fff;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .hero {
-      background: url('gatsby-background.jpg') no-repeat center center/cover;
-      text-align: center;
-      padding: 100px 20px;
-      color: #FFD700;
-    }
-
-    .hero h2 {
-      font-size: 50px;
-      margin-bottom: 20px;
-      font-weight: 900;
-      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
-    }
-
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-      text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
-    }
-
-    .btn {
-      background-color: #FFD700;
-      color: #000;
-      padding: 15px 30px;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-      text-transform: uppercase;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background-color: #e6c200;
     }
 
     .login-container {
@@ -137,6 +64,24 @@
 
     .portal-content {
       display: none;
+      padding: 40px 20px;
+      color: #FFD700;
+      font-size: 20px;
+    }
+
+    .portal-content h3 {
+      font-size: 28px;
+      color: #FFD700;
+      margin-bottom: 20px;
+    }
+
+    .portal-content ul {
+      margin-bottom: 20px;
+    }
+
+    .portal-content ul li {
+      font-size: 18px;
+      margin-bottom: 10px;
     }
 
     footer {
@@ -146,37 +91,9 @@
       color: #777;
       font-size: 14px;
     }
-
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 30px;
-      }
-
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav {
-        margin-top: 10px;
-      }
-    }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="logo-container">
-      <img src="wolf-logo.png" alt="Logo Wolf Academy">
-      <span>Wolf Academy</span>
-    </div>
-    <nav>
-      <a href="#sobre">Sobre</a>
-      <a href="#conteudo">Conteúdo</a>
-      <a href="#publico">Para quem</a>
-      <a href="#inscricao">Inscrição</a>
-    </nav>
-  </header>
 
   <!-- Tela de login -->
   <div class="login-container" id="login">
@@ -188,15 +105,36 @@
 
   <!-- Portal de Aulas -->
   <div class="portal-content" id="portal">
-    <section class="hero">
-      <h2>Bem-vindo ao Portal de Aulas da Wolf Academy</h2>
-      <p>Transforme seu físico, sua mente e sua vida financeira com a nossa mentoria.</p>
-    </section>
+    <h2>Bem-vindo ao Portal de Aulas da Wolf Academy</h2>
+    <p>Aqui você terá acesso a todos os conteúdos exclusivos da mentoria.</p>
 
-    <section id="sobre">
-      <h3>Sobre a Wolf Academy</h3>
-      <p>Somos uma mentoria prática e agressiva. Aqui você vai desenvolver o físico dos seus sonhos enquanto aprende a gerar renda pela internet e dominar sua mente. Essa é a vida do lobo: disciplina, estética e lucro.</p>
-    </section>
+    <h3>Conteúdos Disponíveis:</h3>
+    <ul>
+      <li><a href="#aula1">Aula 1: Treinamento para Hipertrofia</a></li>
+      <li><a href="#aula2">Aula 2: Estratégias Alimentares para Ganho de Massa Muscular</a></li>
+      <li><a href="#aula3">Aula 3: Mindset de Sucesso e Disciplina</a></li>
+      <li><a href="#aula4">Aula 4: Como Criar Fontes de Renda Online</a></li>
+    </ul>
+
+    <div id="aula1">
+      <h3>Aula 1: Treinamento para Hipertrofia</h3>
+      <p>Nesta aula, você aprenderá os fundamentos do treinamento para hipertrofia, abordando os tipos de exercícios, número de repetições, cargas e como ajustar seu treino para maximizar o crescimento muscular.</p>
+    </div>
+
+    <div id="aula2">
+      <h3>Aula 2: Estratégias Alimentares para Ganho de Massa Muscular</h3>
+      <p>Entenda os princípios nutricionais para otimizar o ganho de massa muscular, como calcular suas necessidades calóricas, escolher os alimentos certos e como criar uma dieta que se encaixe com seu treinamento.</p>
+    </div>
+
+    <div id="aula3">
+      <h3>Aula 3: Mindset de Sucesso e Disciplina</h3>
+      <p>O sucesso depende muito da mentalidade. Aqui, vamos trabalhar em técnicas para fortalecer sua disciplina, estabelecer metas e desenvolver uma mentalidade vencedora para enfrentar os desafios.</p>
+    </div>
+
+    <div id="aula4">
+      <h3>Aula 4: Como Criar Fontes de Renda Online</h3>
+      <p>Essa aula vai ensinar como criar múltiplas fontes de renda online. Vamos abordar desde a criação de um negócio digital, marketing de afiliados até a criação de produtos e serviços para vender pela internet.</p>
+    </div>
 
     <footer>
       <p>© 2025 Wolf Academy. Todos os direitos reservados.</p>
@@ -204,14 +142,24 @@
   </div>
 
   <script>
+    // Simulação de um banco de dados simples com alunos e senhas
+    const users = [
+      { username: 'aluno1', password: 'senha1' },
+      { username: 'aluno2', password: 'senha2' },
+      { username: 'aluno3', password: 'senha3' },
+    ];
+
     function login() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      // Simulação de um login simples com usuário e senha fixos
-      if (username === 'aluno' && password === '1234') {
-        document.getElementById('login').style.display = 'none';
-        document.getElementById('portal').style.display = 'block';
+      // Verificar se o usuário existe
+      const user = users.find(u => u.username === username && u.password === password);
+
+      if (user) {
+        // Login bem-sucedido
+        document.getElementById('login').style.display = 'none'; // Esconde a tela de login
+        document.getElementById('portal').style.display = 'block'; // Exibe o portal de aulas
       } else {
         alert('Usuário ou senha incorretos.');
       }
