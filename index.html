@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portal de Aulas - Wolf Academy</title>
+  <title>Portal do Aluno - Wolf Academy</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,35 +14,46 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      background-color: #111;
-      color: #fff;
+      background-color: #f4f4f4;
+      color: #333;
       line-height: 1.6;
+      background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fnoticiasdatv.uol.com.br%2Fnoticia%2Fseries%2Fapos-filme-com-leonardo-dicaprio-o-grande-gatsby-vai-virar-serie-de-tv-50120&psig=AOvVaw2TEGQWkjC9KQApMkmyUHHl&ust=1747024317857000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCPD2ipPLmo0DFQAAAAAdAAAAABAK'); /* Imagem de fundo */
+      background-size: cover;  /* Faz a imagem cobrir todo o fundo */
+      background-position: center;  /* Centraliza a imagem */
+      background-attachment: fixed;  /* Faz com que a imagem não se mova quando o usuário rolar a página */
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.7); /* Fundo semitransparente */
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      border-radius: 10px;
+    }
+
+    header h1 {
+      font-size: 36px;
     }
 
     .login-container {
       max-width: 400px;
-      margin: 100px auto;
+      margin: 50px auto;
       padding: 30px;
-      background-color: #333;
+      background-color: #fff;
       border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    }
-
-    .login-container h2 {
-      color: #FFD700;
-      margin-bottom: 20px;
+      z-index: 2; /* Garante que o conteúdo da tela de login fique visível sobre a imagem de fundo */
     }
 
     .login-container input {
       width: 100%;
       padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #444;
+      margin: 10px 0;
+      border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 16px;
-      background-color: #222;
-      color: #fff;
     }
 
     .login-container button {
@@ -62,107 +73,177 @@
       background-color: #e6c200;
     }
 
-    .portal-content {
+    .portal {
       display: none;
-      padding: 40px 20px;
+      padding: 40px;
+    }
+
+    .category-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .category-item {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      width: calc(33.333% - 20px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: center;
+    }
+
+    .category-item:hover {
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .category-item h3 {
       color: #FFD700;
       font-size: 20px;
     }
 
-    .portal-content h3 {
-      font-size: 28px;
-      color: #FFD700;
-      margin-bottom: 20px;
+    .category-item p {
+      color: #777;
+      margin-top: 10px;
     }
 
-    .portal-content ul {
-      margin-bottom: 20px;
+    .course-list {
+      margin-top: 40px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .portal-content ul li {
+    .course-item {
+      padding: 20px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .course-item h4 {
       font-size: 18px;
-      margin-bottom: 10px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .course-item p {
+      font-size: 16px;
+      color: #555;
     }
 
     footer {
-      background-color: #111;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #fff;
       text-align: center;
-      padding: 40px 20px;
-      color: #777;
-      font-size: 14px;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .category-item {
+        width: calc(50% - 20px);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .category-item {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- Tela de login -->
+  <header>
+    <h1>Wolf Academy - Portal do Aluno</h1>
+  </header>
+
+  <!-- Tela de Login -->
   <div class="login-container" id="login">
-    <h2>Área do Aluno</h2>
+    <h2>Entrar no Portal</h2>
     <input type="text" id="username" placeholder="Nome de usuário" />
     <input type="password" id="password" placeholder="Senha" />
     <button onclick="login()">Entrar</button>
   </div>
 
   <!-- Portal de Aulas -->
-  <div class="portal-content" id="portal">
-    <h2>Bem-vindo ao Portal de Aulas da Wolf Academy</h2>
-    <p>Aqui você terá acesso a todos os conteúdos exclusivos da mentoria.</p>
-
-    <h3>Conteúdos Disponíveis:</h3>
-    <ul>
-      <li><a href="#aula1">Aula 1: Treinamento para Hipertrofia</a></li>
-      <li><a href="#aula2">Aula 2: Estratégias Alimentares para Ganho de Massa Muscular</a></li>
-      <li><a href="#aula3">Aula 3: Mindset de Sucesso e Disciplina</a></li>
-      <li><a href="#aula4">Aula 4: Como Criar Fontes de Renda Online</a></li>
-    </ul>
-
-    <div id="aula1">
-      <h3>Aula 1: Treinamento para Hipertrofia</h3>
-      <p>Nesta aula, você aprenderá os fundamentos do treinamento para hipertrofia, abordando os tipos de exercícios, número de repetições, cargas e como ajustar seu treino para maximizar o crescimento muscular.</p>
+  <div class="portal" id="portal">
+    <h2>Bem-vindo ao Portal de Aulas</h2>
+    <div class="category-list">
+      <div class="category-item" onclick="showCourses('fisico')">
+        <h3>Desenvolvimento Físico</h3>
+        <p>Treinos, alimentação e mais.</p>
+      </div>
+      <div class="category-item" onclick="showCourses('financeiro')">
+        <h3>Desenvolvimento Financeiro</h3>
+        <p>Como gerar renda online.</p>
+      </div>
+      <div class="category-item" onclick="showCourses('mental')">
+        <h3>Mindset e Disciplina</h3>
+        <p>Aumente sua produtividade e foco.</p>
+      </div>
     </div>
 
-    <div id="aula2">
-      <h3>Aula 2: Estratégias Alimentares para Ganho de Massa Muscular</h3>
-      <p>Entenda os princípios nutricionais para otimizar o ganho de massa muscular, como calcular suas necessidades calóricas, escolher os alimentos certos e como criar uma dieta que se encaixe com seu treinamento.</p>
-    </div>
-
-    <div id="aula3">
-      <h3>Aula 3: Mindset de Sucesso e Disciplina</h3>
-      <p>O sucesso depende muito da mentalidade. Aqui, vamos trabalhar em técnicas para fortalecer sua disciplina, estabelecer metas e desenvolver uma mentalidade vencedora para enfrentar os desafios.</p>
-    </div>
-
-    <div id="aula4">
-      <h3>Aula 4: Como Criar Fontes de Renda Online</h3>
-      <p>Essa aula vai ensinar como criar múltiplas fontes de renda online. Vamos abordar desde a criação de um negócio digital, marketing de afiliados até a criação de produtos e serviços para vender pela internet.</p>
-    </div>
-
-    <footer>
-      <p>© 2025 Wolf Academy. Todos os direitos reservados.</p>
-    </footer>
+    <!-- Lista de Cursos -->
+    <div class="course-list" id="courses"></div>
   </div>
 
+  <footer>
+    <p>© 2025 Wolf Academy. Todos os direitos reservados.</p>
+  </footer>
+
   <script>
-    // Simulação de um banco de dados simples com alunos e senhas
     const users = [
       { username: 'aluno1', password: 'senha1' },
       { username: 'aluno2', password: 'senha2' },
-      { username: 'aluno3', password: 'senha3' },
     ];
+
+    const courses = {
+      fisico: [
+        { title: 'Treino para Hipertrofia', description: 'Saiba como crescer seus músculos de forma eficiente.' },
+        { title: 'Estratégias Alimentares', description: 'Como se alimentar para ganhos de massa.' },
+      ],
+      financeiro: [
+        { title: 'Fontes de Renda Online', description: 'Aprenda a criar negócios digitais.' },
+        { title: 'Marketing de Afiliados', description: 'Como ganhar dinheiro promovendo produtos.' },
+      ],
+      mental: [
+        { title: 'Mindset de Sucesso', description: 'O poder da mentalidade positiva e resiliente.' },
+        { title: 'Disciplina Imbatível', description: 'Construa hábitos que te levam ao sucesso.' },
+      ],
+    };
 
     function login() {
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
 
-      // Verificar se o usuário existe
       const user = users.find(u => u.username === username && u.password === password);
 
       if (user) {
-        // Login bem-sucedido
-        document.getElementById('login').style.display = 'none'; // Esconde a tela de login
-        document.getElementById('portal').style.display = 'block'; // Exibe o portal de aulas
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('portal').style.display = 'block';
       } else {
         alert('Usuário ou senha incorretos.');
       }
+    }
+
+    function showCourses(category) {
+      const coursesList = courses[category];
+      let courseItems = '';
+
+      coursesList.forEach(course => {
+        courseItems += `
+          <div class="course-item">
+            <h4>${course.title}</h4>
+            <p>${course.description}</p>
+          </div>
+        `;
+      });
+
+      document.getElementById('courses').innerHTML = courseItems;
     }
   </script>
 
