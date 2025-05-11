@@ -163,7 +163,31 @@
   e.preventDefault();
   document.getElementById('loginScreen').style.display = 'none';
   document.getElementById('dashboardContent').classList.remove('hidden');
-        
+}); 
+        // Para salvar o progresso
+localStorage.setItem("progressoMentalidade", 65);
+
+// Para ler o progresso
+const progresso = localStorage.getItem("progressoMentalidade");
+console.log(`Progresso: ${progresso}%`);
+
+        <div id="commentsSection">
+  <textarea id="commentText" placeholder="Deixe seu comentário..."></textarea>
+  <button onclick="saveComment()">Enviar</button>
+  <div id="commentList"></div>
+</div>
+        <div id="lesson">
+  <h3>Aula 1: Mentalidade Positiva</h3>
+  <button onclick="markAsCompleted()">Marcar como Concluída</button>
+</div>
+        #dashboardContent {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#dashboardContent.show {
+  opacity: 1;
+}
         <!-- Login Screen (initially visible) -->
         <div id="loginScreen" class="flex flex-col items-center justify-center min-h-screen md:min-h-[calc(100vh-4rem)]">
             <div class="w-full max-w-md bg-dark-secondary p-8 rounded-lg gold-border-thick shadow-xl hover-glow transition duration-300">
